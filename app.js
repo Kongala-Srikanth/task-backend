@@ -9,10 +9,20 @@ const {ObjectId, MongoClient} = require('mongodb')
 const app = express()
 
 app.use(express.json())
+
+const allowedOrigins = [
+    'http://localhost:3000',
+    'https://srikanth-kongala-task.netlify.app',
+];
+
 app.use(cors({
-    origin: 'http://localhost:3000', 
-    methods: ['GET', 'POST', 'PUT', 'DELETE'], 
-    credentials: true 
+    origin: (origin, callback) => {
+        if (allowedOrigins.includes(origin) || !origin) {
+            callback(null, true);
+        } else {
+            callback(new Error('Not allowed by CORS'));
+        }
+    },
 }));
 
 
