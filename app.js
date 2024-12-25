@@ -197,7 +197,7 @@ app.put('/task/:id', middlewareJwtToken, async (request, response) => {
 
         // Update the database record
         const result = await tasksTableData.updateOne(
-            { id: parseInt(id), userId: new ObjectId(request.userId) }, // Match by ID and userId
+            { id: id, userId: new ObjectId(request.userId) }, // Match by ID and userId
             { $set: updateData } // Update only the fields provided
         );
 
