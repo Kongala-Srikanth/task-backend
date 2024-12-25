@@ -113,7 +113,7 @@ Replace <file-name> with the name of your server file.
 ```
 
 ### 4. Delete a Task
-- URL: /api/tasks/:id
+- URL: /api/task/:id
 - Method: DELETE
 - Headers: Authorization: Bearer <jwt-token>
 - **Response**:
