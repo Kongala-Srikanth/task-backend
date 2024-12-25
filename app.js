@@ -2,7 +2,7 @@ const express = require('express')
 const cors = require('cors')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
-// const {v4:uuidv4} = require('uuid')
+const {v4:uuidv4} = require('uuid')
 require('dotenv').config();
 const {ObjectId, MongoClient} = require('mongodb')
 
@@ -149,7 +149,7 @@ app.post('/tasks', middlewareJwtToken, async (request, response) => {
 
         const newTask = {
             userId: findUserId,
-            id: id,
+            id: uuidv4(),
             status: status,
             task: task,
             description,
