@@ -222,7 +222,7 @@ app.delete('/task/:id', middlewareJwtToken, async (request, response) => {
 
     try {
         const result = await tasksTableData.deleteOne({
-            id: parseInt(id), 
+            id: id, 
             userId: findUserId 
         });
 
